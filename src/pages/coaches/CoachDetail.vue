@@ -10,8 +10,8 @@
       <header>
         <h2>Interested? Reach out now!</h2>
         <base-button link :to="contactLink">Contact</base-button>
+        <router-view></router-view>
       </header>
-      <router-view></router-view>
     </base-card>
   </section>
   <section>
@@ -32,7 +32,14 @@ export default {
   props: ['id'],
   data() {
     return {
-      selectedCoach: null
+      selectedCoach: {
+        id: 'c3',
+        firstName: '',
+        lastName: '',
+        description: '',
+        hourlyRate: null,
+        areas: ''
+      }
     };
   },
   computed: {
