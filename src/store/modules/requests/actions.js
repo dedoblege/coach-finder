@@ -25,10 +25,12 @@ export default {
 
     context.commit('addRequest', newRequest);
   },
-  async fetchREquest(context) {
+  async fetchRequest(context) {
     const coachId = context.rootGetters.userId;
+    const token = context.rootGetters.token;
     const response = await fetch(
-      `https://vue-http-demo-bef34.firebaseio.com/requests/${coachId}.json`
+      `https://vue-http-demo-bef34.firebaseio.com/requests/${coachId}.json?auth=` +
+        token
     );
     const responseData = await response.json();
 
